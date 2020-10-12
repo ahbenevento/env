@@ -43,6 +43,10 @@ la validación según la estructura **env.Result**.
 -   **ValidRequiredValue** (1) la variable no ha sido definida o su valor es "vacío".
 -   **ValidWrongValue** (2) la variable posee un valor incorrecto.
 
+## License
+
+[Apache 2.0 license](LICENSE).
+
 ## Contacto
 
 Ante alguna catástrofe por favor escriba.

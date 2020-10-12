@@ -45,7 +45,7 @@ la validación según la estructura **env.Result**.
 
 ## License
 
-[Apache 2.0 license](LICENSE).
+[Apache 3.0 license](LICENSE).
 
 ## Contacto
 

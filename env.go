@@ -21,8 +21,8 @@ const (
 
 // Result estructura que informa la validación de cada una de las variables de entorno.
 type Result struct {
-	// Result resultado obtenido: ValidOk, ValidRequiredValue, ValidWrongValue.
-	Result int
+	// Status resultado obtenido: ValidOk, ValidRequiredValue, ValidWrongValue.
+	Status int
 	// EnvValue el valor original obtenido.
 	EnvValue string
 	// Error el error detectado al intentar obtener el valor.
@@ -33,15 +33,15 @@ type Result struct {
 
 // EnvironmentVarsHandler objeto para la gestión de variables de entorno.
 type EnvironmentVarsHandler struct {
-	// Vars el mapa de variables obtenidas.
-	Result map[string]Result
+	// Results el mapa de variables obtenidas.
+	Results map[string]Result
 
 	conf *interface{}
 }
 
 // Valid verifica una o más variables de entorno.
 func (evh *EnvironmentVarsHandler) Valid() bool {
-	evh.Result = make(map[string]Result)
+	evh.Results = make(map[string]Result)
 	dataStruct := reflect.ValueOf(*evh.conf).Elem()
 	validated := true
 
@@ -100,7 +100,7 @@ func (evh *EnvironmentVarsHandler) Valid() bool {
 				valueError = fmt.Errorf("Required value (%s)", property.Name)
 			}
 
-			evh.Result[property.Name] = Result{status, value, valueError}
+			evh.Results[property.Name] = Result{status, value, valueError}
 
 			if status != ValidOk && validated {
 				validated = false

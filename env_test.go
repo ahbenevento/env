@@ -14,7 +14,7 @@ func TestGestor(t *testing.T) {
 	evh := New(vars)
 
 	t.Log(evh.Valid())
-	t.Log(evh.Result)
+	t.Log(evh.Results)
 	t.Log("vars.Temp", vars.Temp)
 	t.Log("vars.Prueba", vars.Prueba)
 }
